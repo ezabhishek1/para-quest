@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: paraquest
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.0
+      - key: OLLAMA_HOST
+        value: http://127.0.0.1:11434
+      - key: OLLAMA_MODEL
+        value: gemma:2b
+      - key: OLLAMA_TIMEOUT_MS
+        value: 25000

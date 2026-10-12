@@ -23,7 +23,7 @@ $$\text{Choose Your Time} \longrightarrow \text{Get 3 Quests} \longrightarrow \t
 - **Icons**: Lucide React
 - **Validation**: Zod runtime schemas
 - **Persistence**: IndexedDB via `idb`
-- **Inference**: Ollama (supports both local models like `gemma:2b` and cloud models like `gemma4:cloud` or fallback Curated Demo Mode)
+- **Inference**: Ollama (supports both local models like `gemma:2b` and cloud models like `gemma4:cloud`, plus verified Curated Demo Mode)
 - **Unit Testing**: Vitest with `jsdom`
 
 ---
@@ -53,12 +53,29 @@ Open [http://localhost:3000](http://localhost:3000) to view ParaQuest.
 
 ---
 
+## ☁️ Deployment on Render
+
+ParaQuest includes a pre-configured `render.yaml` Blueprint for one-click deployment on Render as a Node.js Web Service:
+
+1. Push this repository to GitHub: `https://github.com/ezabhishek1/para-quest`.
+2. In your [Render Dashboard](https://dashboard.render.com), click **New +** → **Blueprint**.
+3. Select your repository `ezabhishek1/para-quest`.
+4. Render will automatically detect `render.yaml`:
+   - **Environment**: Node
+   - **Build Command**: `npm install && npm run build`
+   - **Start Command**: `npm start`
+5. Click **Apply**. Your app will be live with full dynamic App Router support!
+
+*(Note: On cloud hosting, ParaQuest runs with high-fidelity Curated Demo Mode or connects to Ollama Cloud if you supply an `OLLAMA_API_KEY`.)*
+
+---
+
 ## 🤖 Ollama Setup & Configuration
 
 ParaQuest supports both **Local AI Models** and **Ollama Cloud Models**, alongside an instant **Curated Demo Mode**.
 
 ### Local Models (Offline & Free)
-1. **Ollama CLI** is installed on this machine (`v0.40.3+`).
+1. **Ollama CLI** is installed on your computer (`v0.40.3+`).
 2. Pull a lightweight model suitable for your hardware (e.g. 4GB VRAM GPU):
    ```powershell
    ollama pull gemma:2b
